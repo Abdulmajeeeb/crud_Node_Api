@@ -5,6 +5,7 @@ const getUser = require('./routes/user');
 const getAllUsers = require('./routes/allUsers');
 const createUser = require('./routes/createUser');
 const updateUser = require('./routes/updateUser');
+const deleteUser = require('./routes/deleteUser');
 
 const crudServer = http.createServer(async function (request, response) {
 
@@ -32,6 +33,10 @@ const crudServer = http.createServer(async function (request, response) {
                 }
                 if (request.method === "PATCH") {
                     await updateUser(request, response);
+                    break;
+                }
+                if (request.method === "DELETE") {
+                    await deleteUser(request, response);
                     break;
                 }
             } else {

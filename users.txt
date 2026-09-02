@@ -1,4 +1,3 @@
-Ali;Hassan;11
 Basit;Saab;12
 Casim;Saab;13
 Daud;Ahmed;14
@@ -11,4 +10,3 @@ Jamil;Khan;20
 Kamil;Kamran;21
 Luqman;Ahmed;22
 Minahil;Ijaz;23
-Nimra;Khan;24
