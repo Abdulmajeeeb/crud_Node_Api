@@ -33,9 +33,9 @@ const updateUser = async (request, response) => {
         }
 
         // Return a 404 response if the user does not exist.
-        if (user === null){
-            response.writeHead(404,{
-                "Content-Type":"application/json"
+        if (user === null) {
+            response.writeHead(404, {
+                "Content-Type": "application/json"
             })
             response.end(JSON.stringify({
                 message: 'user not found'
@@ -47,8 +47,8 @@ const updateUser = async (request, response) => {
         const splitUser = user.split(';');
 
         // Use the new value when provided; otherwise retain the existing value.
-        const firstName = receivedData.firstName ?? splitUser[0];
-        const lastName = receivedData.lastName ?? splitUser[1];
+        const firstName = receivedData.firstName?.replaceAll(';','') ?? splitUser[0];
+        const lastName = receivedData.lastName?.replaceAll(';','') ?? splitUser[1];
         const age = receivedData.age ?? splitUser[2];
 
         // Construct the updated user record.

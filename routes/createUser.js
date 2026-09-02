@@ -18,6 +18,9 @@ const createUser = async (request, response) => {
         // Parse the request body into a JavaScript object.
         const newUser = JSON.parse(body);
 
+        newUser.firstName= String(newUser.firstName).replace(/;/g,"");
+        newUser.lastName= String(newUser.lastName).replace(/;/g,"");
+
         // Format the new user as a semicolon-separated record.
         const userLine = `\r\n${newUser.firstName};${newUser.lastName};${newUser.age}`;
 

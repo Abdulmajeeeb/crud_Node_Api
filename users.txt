@@ -1,12 +1,2 @@
-Basit;Saab;12
-Casim;Saab;13
-Daud;Ahmed;14
-Eruj;Noor;15
-Fatima;Jinnah;16
-Ghanni;Bhai;17
-Haris;Khan;18
-Iqbal;Saab;19
-Jamil;Khan;20
-Kamil;Kamran;21
-Luqman;Ahmed;22
-Minahil;Ijaz;23
+ali;hamza;15
+Bakht kjko;Khanali;15
