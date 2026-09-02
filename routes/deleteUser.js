@@ -7,6 +7,21 @@ const deleteUser = async (request, response) => {
 
     const allUsersText = await fs.readFile(filePath, 'utf8');
     const allUsers = allUsersText.split('\r\n');
+
+    let user = null;
+    if (allUsers[id - 1] !== undefined) {
+        user = allUsers[id - 1];
+        console.log(user);
+    }
+    if (user === null) {
+        response.writeHead(404, {
+            "Content-Type": "application/json"
+        })
+        response.end(JSON.stringify({
+            message: 'user not found'
+        }))
+        return;
+    }
     allUsers.splice(id - 1, 1);
     const updateUsers = allUsers.join('\r\n');
     await fs.writeFile(filePath, updateUsers);
