@@ -10,7 +10,7 @@ const createUser = async (request, response) => {
     })
     request.on('end', async () => {
         const newUser = JSON.parse(body);
-        const userLine = `${newUser.firstName};${newUser.lastName};${newUser.age}`;
+        const userLine = `\r\n${newUser.firstName};${newUser.lastName};${newUser.age}`;
         await fs.appendFile(filePath, userLine);
         response.writeHead(201, {
             "Content-Type": "application/json"

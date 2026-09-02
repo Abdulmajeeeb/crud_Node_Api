@@ -4,6 +4,7 @@ const route_404 = require('./routes/_404');
 const getUser = require('./routes/user');
 const getAllUsers = require('./routes/allUsers');
 const createUser = require('./routes/createUser');
+const updateUser = require('./routes/updateUser');
 
 const crudServer = http.createServer(async function (request, response) {
 
@@ -25,7 +26,14 @@ const crudServer = http.createServer(async function (request, response) {
             break;
         default:
             if (url.startsWith('/user/')) {
-                await getUser(request, response);
+                if (request.method === "GET") {
+                    await getUser(request, response);
+                    break;
+                }
+                if (request.method === "PATCH") {
+                    await updateUser(request, response);
+                    break;
+                }
             } else {
                 route_404(request, response);
             }
